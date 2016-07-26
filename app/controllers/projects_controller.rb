@@ -13,8 +13,6 @@ class ProjectsController < ApplicationController
   end
   
   def update
-
-    
     if @project.update(project_params)
     
       flash[:notice] = "Project has been updated."
