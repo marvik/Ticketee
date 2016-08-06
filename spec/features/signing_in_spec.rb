@@ -15,4 +15,17 @@ RSpec.feature "Users can sign in" do
     
   end
   
+    scenario "unless they are archived"  do
+      user.archive
+      
+      visit "/"
+      click_link "Sign in"
+      fill_in "Email", with: user.email
+      fill_in "Password", with: "password"
+      click_button "Sign in"
+      
+      expect(page).to have_content "You account has been archived."
+    
+  end
+  
 end
